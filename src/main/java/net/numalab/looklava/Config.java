@@ -14,7 +14,10 @@ public class Config extends BaseConfig {
     public TeamSetValue activeTeams = new TeamSetValue();
 
     // 見ている距離
-    public DoubleValue range = new DoubleValue(4.0);
+    public DoubleValue maxRrange = new DoubleValue(4.0);
+
+    // 最小距離
+    public DoubleValue minRrange = new DoubleValue(0.0);
 
     public Config(@NotNull Plugin plugin) {
         super(plugin);
