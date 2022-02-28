@@ -15,7 +15,6 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 public class LookListener implements Listener {
     @EventHandler
@@ -31,11 +30,13 @@ public class LookListener implements Listener {
             return;
         }
 
-        Scoreboard sb = Bukkit.getScoreboardManager().getMainScoreboard();
-        Team team = sb.getEntryTeam(player.getName());
-        if (!LookLava.config.activeTeams.contains(team)) {
-            // 設定されたチームだったら
-            return;
+        if (!LookLava.config.activeTeams.isEmpty()) {
+            Scoreboard sb = Bukkit.getScoreboardManager().getMainScoreboard();
+            Team team = sb.getEntryTeam(player.getName());
+            if (!LookLava.config.activeTeams.contains(team)) {
+                // 設定されたチームだったら
+                return;
+            }
         }
 
         RayTraceResult result = player.rayTraceBlocks(LookLava.config.maxRrange.value(), FluidCollisionMode.ALWAYS);
