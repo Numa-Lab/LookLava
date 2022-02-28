@@ -1,0 +1,5 @@
+name: LookLava
+version: '${project.version}'
+main: net.numalab.looklava.LookLava
+api-version: 1.16
+authors: [ Kamesuta ]
